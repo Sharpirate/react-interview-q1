@@ -1,12 +1,16 @@
 export default function Saved({ data, handleSave, handleClear }) {
   return (
     <div>
-      <div>
-        <button onClick={handleClear}>Clear</button>
-        <button onClick={handleSave}>Add</button>
+      <div className="buttons">
+        <button className="button" onClick={handleClear}>
+          Clear
+        </button>
+        <button className="button" onClick={handleSave}>
+          Add
+        </button>
       </div>
 
-      <table>
+      <table className="table">
         <thead>
           <tr>
             <th>Name</th>

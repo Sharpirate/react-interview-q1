@@ -2,8 +2,11 @@ export default function Search({ value, onChange, isValid }) {
   return (
     <div>
       <div>
-        <label htmlFor="name">Name</label>
+        <label className="name-label" htmlFor="name">
+          Name
+        </label>
         <input
+          class="name-input"
           id="name"
           name="name"
           type="text"
