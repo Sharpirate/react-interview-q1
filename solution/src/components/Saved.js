@@ -1,6 +1,6 @@
 export default function Saved({ data, handleSave, handleClear }) {
   return (
-    <div>
+    <div className="saved">
       <div className="buttons">
         <button className="button" onClick={handleClear}>
           Clear
