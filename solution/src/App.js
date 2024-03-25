@@ -8,6 +8,7 @@ import { getLocations, isNameValid } from "./mock-api/apis";
 function App() {
   const [locationList, setLocationList] = useState(null);
   const [name, setName] = useState("");
+  const [isValidName, setIsValidName] = useState(true);
   const [location, setLocation] = useState("");
   const [saved, setSaved] = useState([]);
 
@@ -22,6 +23,17 @@ function App() {
 
     fetchLocations();
   }, [setLocationList]);
+
+  useEffect(() => {
+    async function validateName() {
+      try {
+        const result = await isNameValid(name);
+        setIsValidName(result);
+      } catch (e) {}
+    }
+
+    validateName();
+  }, [name]);
 
   function onLocationChange(e) {
     setLocation(e.target.value);
@@ -43,7 +55,7 @@ function App() {
 
   return (
     <div>
-      <Search isNotAvailable={true} value={name} onChange={onNameChange} />
+      <Search isValid={isValidName} value={name} onChange={onNameChange} />
       {locationList && (
         <Dropdown
           data={locationList}

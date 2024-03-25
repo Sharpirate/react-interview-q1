@@ -1,4 +1,4 @@
-export default function Search({ value, onChange, isNotAvailable }) {
+export default function Search({ value, onChange, isValid }) {
   return (
     <div>
       <div>
@@ -11,7 +11,7 @@ export default function Search({ value, onChange, isNotAvailable }) {
           onChange={onChange}
         />
       </div>
-      {isNotAvailable && <p>this name has already been taken</p>}
+      {!isValid && <p>this name has already been taken</p>}
     </div>
   );
 }
