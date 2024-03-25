@@ -65,15 +65,17 @@ function App() {
 
   return (
     <div className="app">
-      <Search isValid={isValidName} value={name} onChange={onNameChange} />
-      {locationList && (
-        <Dropdown
-          data={locationList}
-          value={location}
-          onChange={onLocationChange}
-        />
-      )}
-      <Saved data={saved} handleSave={handleSave} handleClear={handleClear} />
+      <div className="content">
+        <Search isValid={isValidName} value={name} onChange={onNameChange} />
+        {locationList && (
+          <Dropdown
+            data={locationList}
+            value={location}
+            onChange={onLocationChange}
+          />
+        )}
+        <Saved data={saved} handleSave={handleSave} handleClear={handleClear} />
+      </div>
     </div>
   );
 }
