@@ -10,6 +10,7 @@ function App() {
   // In terms of customer experience and efficiency, I have used semantic HTML elements ensuring that:
   // The whole interface can be navigated via keyboard allowing for faster interaction with the UI
   // The whole interface is announced correctly by screen readers
+  // Additionally, if we want to avoid layout shift we can use absolute positions for certain elements such as the table and invalind name message
   const [locationList, setLocationList] = useState(null);
   const [name, setName] = useState("");
   const [isValidName, setIsValidName] = useState(true);
