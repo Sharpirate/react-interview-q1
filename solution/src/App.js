@@ -1,19 +1,27 @@
 import "./App.css";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Saved from "./components/Saved";
-
-const COUNTRIES = ["China", "USA", "Brazil"];
+import { getLocations, isNameValid } from "./mock-api/apis";
 
 function App() {
-  const [name, setName] = useState(null);
-  const [location, setLocation] = useState(COUNTRIES[0]);
-  const [saved, setSaved] = useState([
-    { name: "Bogomil", location: "China" },
-    { name: "Ivan", location: "USA" },
-    { name: "Ivan", location: "Brazil" },
-  ]);
+  const [locationList, setLocationList] = useState(null);
+  const [name, setName] = useState("");
+  const [location, setLocation] = useState("");
+  const [saved, setSaved] = useState([]);
+
+  useEffect(() => {
+    async function fetchLocations() {
+      try {
+        const result = await getLocations();
+        setLocationList(result);
+        setLocation(result[0]);
+      } catch (e) {}
+    }
+
+    fetchLocations();
+  }, [setLocationList]);
 
   function onLocationChange(e) {
     setLocation(e.target.value);
@@ -23,11 +31,27 @@ function App() {
     setName(e.target.value);
   }
 
+  function handleSave() {
+    console.log(name);
+    console.log(location);
+    setSaved([...saved, { name, location }]);
+  }
+
+  function handleClear() {
+    setSaved([]);
+  }
+
   return (
     <div>
       <Search isNotAvailable={true} value={name} onChange={onNameChange} />
-      <Dropdown data={COUNTRIES} value={location} onChange={onLocationChange} />
-      <Saved data={saved} />
+      {locationList && (
+        <Dropdown
+          data={locationList}
+          value={location}
+          onChange={onLocationChange}
+        />
+      )}
+      <Saved data={saved} handleSave={handleSave} handleClear={handleClear} />
     </div>
   );
 }

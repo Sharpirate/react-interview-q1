@@ -1,10 +1,8 @@
-import { useState } from "react";
-
 export default function Search({ value, onChange, isNotAvailable }) {
   return (
     <div>
-      <div className="">
-        <label for="name">Name</label>
+      <div>
+        <label htmlFor="name">Name</label>
         <input
           id="name"
           name="name"
