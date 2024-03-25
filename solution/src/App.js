@@ -54,7 +54,9 @@ function App() {
   }
 
   function handleSave() {
-    setSaved([...saved, { name, location }]);
+    if (isValidName && name && location) {
+      setSaved([...saved, { name, location }]);
+    }
   }
 
   function handleClear() {
