@@ -7,7 +7,9 @@ import { getLocations, isNameValid } from "./mock-api/apis";
 import { debounce } from "lodash";
 
 function App() {
-  // In terms of customer experience and efficiency, the whole interface could be navigated via keyboard allowing for faster interaction with the UI
+  // In terms of customer experience and efficiency, I have used semantic HTML elements ensuring that:
+  // The whole interface can be navigated via keyboard allowing for faster interaction with the UI
+  // The whole interface is announced correctly by screen readers
   const [locationList, setLocationList] = useState(null);
   const [name, setName] = useState("");
   const [isValidName, setIsValidName] = useState(true);
