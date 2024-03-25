@@ -1,9 +1,10 @@
 import "./App.css";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Saved from "./components/Saved";
 import { getLocations, isNameValid } from "./mock-api/apis";
+import { debounce } from "lodash";
 
 function App() {
   const [locationList, setLocationList] = useState(null);
@@ -11,6 +12,18 @@ function App() {
   const [isValidName, setIsValidName] = useState(true);
   const [location, setLocation] = useState("");
   const [saved, setSaved] = useState([]);
+
+  const validate = useCallback(
+    debounce(async (name) => {
+      try {
+        const result = await isNameValid(name);
+        setIsValidName(result);
+      } catch (e) {
+        // TODO: error handling
+      }
+    }, 200),
+    []
+  );
 
   useEffect(() => {
     async function fetchLocations() {
@@ -27,17 +40,10 @@ function App() {
   }, [setLocationList]);
 
   useEffect(() => {
-    async function validateName() {
-      try {
-        const result = await isNameValid(name);
-        setIsValidName(result);
-      } catch (e) {
-        // TODO: error handling
-      }
+    if (name !== "") {
+      validate(name);
     }
-
-    validateName();
-  }, [name]);
+  }, [name, validate]);
 
   function onLocationChange(e) {
     setLocation(e.target.value);
