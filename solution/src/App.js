@@ -7,6 +7,7 @@ import { getLocations, isNameValid } from "./mock-api/apis";
 import { debounce } from "lodash";
 
 function App() {
+  // In terms of customer experience and efficiency, the whole interface could be navigated via keyboard allowing for faster interaction with the UI
   const [locationList, setLocationList] = useState(null);
   const [name, setName] = useState("");
   const [isValidName, setIsValidName] = useState(true);
