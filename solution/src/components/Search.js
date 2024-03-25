@@ -7,7 +7,7 @@ export default function Search({ value, onChange, isValid }) {
         </label>
         <input
           placeholder="Enter a name"
-          class="name-input"
+          className="name-input"
           id="name"
           name="name"
           type="text"
