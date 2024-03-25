@@ -42,3 +42,14 @@
   border: 5px solid black;
   min-height: 330px;
 }
+
+.table-name {
+  min-width: 370px;
+  background: #cccccc;
+  text-align: left;
+}
+.table-location {
+  background: #cccccc;
+  min-width: 530px;
+  text-align: left;
+}

@@ -13,8 +13,8 @@ export default function Saved({ data, handleSave, handleClear }) {
       <table className="table">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Location</th>
+            <th className="table-name">Name</th>
+            <th className="table-location">Location</th>
           </tr>
         </thead>
         <tbody>
