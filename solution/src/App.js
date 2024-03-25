@@ -44,8 +44,6 @@ function App() {
   }
 
   function handleSave() {
-    console.log(name);
-    console.log(location);
     setSaved([...saved, { name, location }]);
   }
 
