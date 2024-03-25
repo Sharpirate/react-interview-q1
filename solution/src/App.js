@@ -18,7 +18,9 @@ function App() {
         const result = await getLocations();
         setLocationList(result);
         setLocation(result[0]);
-      } catch (e) {}
+      } catch (e) {
+        // TODO: error handling
+      }
     }
 
     fetchLocations();
@@ -29,7 +31,9 @@ function App() {
       try {
         const result = await isNameValid(name);
         setIsValidName(result);
-      } catch (e) {}
+      } catch (e) {
+        // TODO: error handling
+      }
     }
 
     validateName();
