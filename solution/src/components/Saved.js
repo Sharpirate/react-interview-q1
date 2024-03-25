@@ -9,7 +9,7 @@ export default function Saved({ data, handleSave, handleClear }) {
           Add
         </button>
       </div>
-
+      {/* table */}
       <table className="table">
         <thead>
           <tr>
@@ -20,8 +20,8 @@ export default function Saved({ data, handleSave, handleClear }) {
         <tbody>
           {data.map(({ name, location }) => (
             <tr key={`${name}-${location}`}>
-              <td>{name}</td>
-              <td>{location}</td>
+              <td className="name-td">{name}</td>
+              <td className="location-td">{location}</td>
             </tr>
           ))}
         </tbody>
