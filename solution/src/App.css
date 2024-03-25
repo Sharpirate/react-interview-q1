@@ -28,6 +28,7 @@
 }
 
 .location-select {
+  font-weight: bold;
   border: 5px solid black;
   width: 780px;
   padding: 14px;
