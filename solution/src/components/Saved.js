@@ -9,7 +9,8 @@ export default function Saved({ data, handleSave, handleClear }) {
           Add
         </button>
       </div>
-      {/* If I could start over again I would have used two tables or two unordered lists for the two columns of the table so I can stack them vertically one below the other on mobile screens  */}
+      {/* If I could start over again I would have used two tables or two unordered lists for the two columns of the table so I can stack them vertically one below the other to allow for responsive layout  */}
+      {/* My instict was to use a table element at first because that felt like the most semantically correct element */}
       <table className="table">
         <thead>
           <tr>
