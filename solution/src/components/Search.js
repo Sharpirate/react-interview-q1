@@ -14,7 +14,9 @@ export default function Search({ value, onChange, isValid }) {
           onChange={onChange}
         />
       </div>
-      {!isValid && <p>this name has already been taken</p>}
+      {!isValid && (
+        <p className="invalid-name">this name has already been taken</p>
+      )}
     </div>
   );
 }
